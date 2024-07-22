@@ -1,0 +1,30 @@
+{
+  "name": "svelte-work-app devcontainer",
+  "dockerComposeFile": "../compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "init": true,
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "svelte.svelte-vscode"
+      ],
+      "settings": {
+        "files.eol": "\n",
+        "[javascript][typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.tabSize": 2
+        },
+        "[scss]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.tabSize": 2
+        },
+        "[json]": {
+          "editor.defaultFormatter": "vscode.json-language-features",
+          "editor.tabSize": 2
+        }
+      }
+    }
+  }
+}
