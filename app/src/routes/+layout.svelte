@@ -10,8 +10,5 @@
   >
     <Navbar />
   </header>
-  <Sidebar />
-  <main class="ml-64">
-    <slot />
-  </main>
+  <slot />
 </div>
