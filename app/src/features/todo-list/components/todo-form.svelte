@@ -5,9 +5,12 @@
 
   const todoList = getTodoListContext();
 
-  let className = '';
-  let value: string = '';
-  export { className as class };
+  interface Props {
+    class?: string;
+  }
+
+  let { class: className = '' }: Props = $props();
+  let value: string = $state('');
 
   const handleKeydownInput = (e: KeyboardEvent) => {
     if (e.key !== 'Enter' || !value) {
@@ -28,5 +31,7 @@
 
 <div class="flex {className}">
   <Input type="text" class="mr-3 w-full" size="lg" placeholder="Create new todo" bind:value on:keydown={handleKeydownInput} />
-  <Button slot="right" on:click={handleBtnClick}><PlusOutline /></Button>
+  {#snippet right()}
+    <Button on:click={handleBtnClick}><PlusOutline /></Button>
+  {/snippet}
 </div>

@@ -19,10 +19,10 @@ export const GENERATIONS = [
   GENERATION_8,
   GENERATION_9
 ] as const;
-export type GenerationsType = typeof GENERATIONS[number]
+export type GenerationsType = (typeof GENERATIONS)[number];
 
 export const POKEDEX = {
-  [GENERATION_1]: { start: 1,   end: 151 },
+  [GENERATION_1]: { start: 1, end: 151 },
   [GENERATION_2]: { start: 152, end: 251 },
   [GENERATION_3]: { start: 252, end: 386 },
   [GENERATION_4]: { start: 387, end: 493 },
@@ -32,4 +32,4 @@ export const POKEDEX = {
   [GENERATION_8]: { start: 810, end: 905 },
   [GENERATION_9]: { start: 906, end: 1025 }
 } as const;
-export type PokedexType = typeof POKEDEX[keyof typeof POKEDEX]
+export type PokedexType = (typeof POKEDEX)[keyof typeof POKEDEX];

@@ -3,9 +3,13 @@
   import PostsPagination from './posts-pagination.svelte';
   import PostsTable from './posts-table.svelte';
 
-  export let currentPage: number = 1;
-  export let totalPage: number = 1;
-  export let fetchPosts: Promise<any> = Promise.reject();
+  interface Props {
+    currentPage?: number;
+    totalPage?: number;
+    fetchPosts?: Promise<any>;
+  }
+
+  let { currentPage = 1, totalPage = 1, fetchPosts = Promise.reject() }: Props = $props();
 </script>
 
 <div>

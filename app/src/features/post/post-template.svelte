@@ -15,9 +15,13 @@
     body: string;
   }
 
-  export let id: number;
-  export let post: Post;
-  export let comments: Comment[];
+  interface Props {
+    id: number;
+    post: Post;
+    comments: Comment[];
+  }
+
+  let { id, post, comments }: Props = $props();
 </script>
 
 <div>
@@ -28,7 +32,7 @@
     </div>
     <p>{post.body}</p>
   </Card>
-  
+
   <Card class="w-full max-w-none">
     <Heading tag="h5" class="mb-4">Comments</Heading>
     {#each comments as comment (comment.id)}

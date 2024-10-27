@@ -36,7 +36,6 @@ export const load: PageServerLoad = async () => {
 
       return acc;
     }, []);
-
   } catch (e) {
     console.error(e);
   }

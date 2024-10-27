@@ -6,7 +6,9 @@
 
 <div>
   <TodoForm class="m-auto mb-4 max-w-2xl" />
-  <TodoItems class="m-auto" let:todo>
-    <TodoItem {...todo} />
+  <TodoItems class="m-auto">
+    {#snippet children({ todo })}
+      <TodoItem {...todo} />
+    {/snippet}
   </TodoItems>
 </div>

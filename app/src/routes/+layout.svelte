@@ -2,6 +2,11 @@
   import '../app.css';
   import Navbar from './navbar.svelte';
   import Sidebar from './sidebar.svelte';
+  interface Props {
+    children?: import('svelte').Snippet;
+  }
+
+  let { children }: Props = $props();
 </script>
 
 <div class="relative max-h-screen w-full overflow-auto">
@@ -10,5 +15,5 @@
   >
     <Navbar />
   </header>
-  <slot />
+  {@render children?.()}
 </div>

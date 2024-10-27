@@ -5,11 +5,14 @@ see https://flowbite-svelte.com/
 ---------------------------------------- -->
 
 <script lang="ts">
-  let className: string = '';
-  export {className as class}
+  interface Props {
+    class?: string;
+  }
+
+  let { class: className = '' }: Props = $props();
 </script>
 
 <div role="status" class="animate-pulse">
-  <div class="bg-gray-200 rounded-full dark:bg-gray-700 {className}"></div>
+  <div class="rounded-full bg-gray-200 dark:bg-gray-700 {className}"></div>
   <span class="sr-only">Loading...</span>
 </div>

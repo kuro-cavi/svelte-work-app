@@ -6,9 +6,13 @@
 
   const todoList = getTodoListContext();
 
-  export let id: number;
-  export let title: string;
-  export let completed: boolean;
+  interface Props {
+    id: number;
+    title: string;
+    completed: boolean;
+  }
+
+  let { id, title, completed }: Props = $props();
 </script>
 
 <div class="flex items-center justify-between" role="listitem">

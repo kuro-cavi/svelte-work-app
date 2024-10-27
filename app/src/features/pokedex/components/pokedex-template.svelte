@@ -8,7 +8,11 @@
     name: string;
   }
 
-  export let generationPokemons: Record<GenerationsType, Pokemon[]>;
+  interface Props {
+    generationPokemons: Record<GenerationsType, Pokemon[]>;
+  }
+
+  let { generationPokemons }: Props = $props();
 </script>
 
 <div>

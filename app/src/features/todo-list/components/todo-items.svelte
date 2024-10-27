@@ -4,8 +4,12 @@
 
   const todoList = getTodoListContext();
 
-  let className = '';
-  export { className as class };
+  interface Props {
+    class?: string;
+    children?: import('svelte').Snippet<[any]>;
+  }
+
+  let { class: className = '', children }: Props = $props();
 </script>
 
 {#if $todoList.length}
@@ -13,7 +17,7 @@
     <div class="relative overflow-x-auto">
       {#each $todoList as todo (todo.id)}
         <div class="border-b px-6 py-4 last:border-b-0 dark:border-gray-700">
-          <slot {todo} />
+          {@render children?.({ todo })}
         </div>
       {/each}
     </div>

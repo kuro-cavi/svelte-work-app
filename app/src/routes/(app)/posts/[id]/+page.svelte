@@ -2,7 +2,11 @@
   import PostTemplate from '$features/post/post-template.svelte';
   import type { PageData } from './$types';
 
-  export let data: PageData;
+  interface Props {
+    data: PageData;
+  }
+
+  let { data }: Props = $props();
   let { id } = data;
 </script>
 

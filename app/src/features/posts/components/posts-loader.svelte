@@ -1,12 +1,5 @@
 <script lang="ts">
-  import {
-    Table,
-    TableBody,
-    TableBodyCell,
-    TableBodyRow,
-    TableHead,
-    TableHeadCell
-  } from 'flowbite-svelte';
+  import { Table, TableBody, TableBodyCell, TableBodyRow, TableHead, TableHeadCell } from 'flowbite-svelte';
   import Skeleton from '$components/skeleton.svelte';
 </script>
 
@@ -26,4 +19,3 @@
     {/each}
   </TableBody>
 </Table>
-

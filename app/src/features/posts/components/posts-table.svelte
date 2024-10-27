@@ -7,7 +7,11 @@
     body: string;
   }
 
-  export let posts: Post[] = [];
+  interface Props {
+    posts?: Post[];
+  }
+
+  let { posts = [] }: Props = $props();
 
   const truncateChar = (char: string) => {
     return char.length > 50 ? char.slice(0, 50) + ` ...` : char;

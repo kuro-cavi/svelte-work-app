@@ -28,7 +28,7 @@
       <A class="hover:no-underline" href={item.href}>
         <Card class="hover:border-primary-500 dark:hover:border-primary-500">
           <div class="just flex items-center justify-center gap-3">
-            <svelte:component this={item.icon} size="lg" />{item.title}
+            <item.icon size="lg" />{item.title}
           </div>
         </Card>
       </A>

@@ -19,7 +19,7 @@
     { label: 'Pokedex', href: '/pokedex', icon: Pokeball }
   ];
 
-  $: activeUrl = $page.url.pathname;
+  let activeUrl = $derived($page.url.pathname);
 </script>
 
 <Sidebar {activeUrl} asideClass="fixed flex-none h-full w-64 lg:h-auto border-e border-gray-200 dark:border-gray-600">
@@ -27,12 +27,11 @@
     <SidebarGroup>
       {#each menus as menu (menu.label)}
         <SidebarItem label={menu.label} href={menu.href} active={activeUrl === menu.href}>
-          <svelte:fragment slot="icon">
-            <svelte:component
-              this={menu.icon}
+          {#snippet icon()}
+            <menu.icon
               class="h-6 w-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
             />
-          </svelte:fragment>
+          {/snippet}
         </SidebarItem>
       {/each}
     </SidebarGroup>

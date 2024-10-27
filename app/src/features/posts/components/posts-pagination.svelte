@@ -1,12 +1,18 @@
 <script lang="ts">
+  import { run } from 'svelte/legacy';
+
   import { Pagination, type LinkType } from 'flowbite-svelte';
   import { ChevronLeftOutline, ChevronRightOutline } from 'flowbite-svelte-icons';
 
-  export let currentPage: number = 1;
-  export let totalPage: number = 1;
-  let pages: LinkType[] = [];
+  interface Props {
+    currentPage?: number;
+    totalPage?: number;
+  }
 
-  $: {
+  let { currentPage = 1, totalPage = 1 }: Props = $props();
+  let pages: LinkType[] = $state([]);
+
+  run(() => {
     let result: LinkType[] = [];
     for (let i = 1; i <= totalPage; i++) {
       result.push({
@@ -16,7 +22,7 @@
       });
     }
     pages = result;
-  }
+  });
 
   const previous = () => {
     if (currentPage > 1) {
@@ -31,12 +37,12 @@
 </script>
 
 <Pagination {pages} large on:previous={previous} on:next={next} icon>
-  <svelte:fragment slot="prev">
+  {#snippet prev()}
     <span class="sr-only">Previous</span>
     <ChevronLeftOutline class="h-6 w-6" />
-  </svelte:fragment>
-  <svelte:fragment slot="next">
+  {/snippet}
+  {#snippet next()}
     <span class="sr-only">Next</span>
     <ChevronRightOutline class="h-6 w-6" />
-  </svelte:fragment>
+  {/snippet}
 </Pagination>
