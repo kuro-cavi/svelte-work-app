@@ -1,17 +1,16 @@
-version: '3.8'
 services:
 
-  ### App #########################################
-  app:
-    image: node:21-bookworm
+  ### Workspace #########################################
+  workspace:
+    build: 
+      context: .
+      dockerfile: ./docker/workspace/Dockerfile
     volumes:
-      # - ./app:/app
-      # - node-module-volume:/app/node_modules
       - ./:/workspace
       - node-module-volume:/workspace/app/node_modules
     working_dir: /workspace
     ports:
-      - "8085:8085"
+      - "5173:5173"
     init: true
     tty: true
     stdin_open: true

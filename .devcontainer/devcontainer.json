@@ -1,7 +1,7 @@
 {
   "name": "svelte-work-app devcontainer",
   "dockerComposeFile": "../compose.yml",
-  "service": "app",
+  "service": "workspace",
   "workspaceFolder": "/workspace",
   "init": true,
   "customizations": {
